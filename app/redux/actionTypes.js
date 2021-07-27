@@ -1,0 +1,5 @@
+export const LOAD_DISHES = "LOAD_DISHES";
+
+export const ADD_TO_FAVOURITE = "ADD_TO_FOAVOURITE";
+
+export const REMOVE_FOVOURITE = "REMOVE_FAVOURITE";
