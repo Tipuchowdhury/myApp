@@ -1,4 +1,5 @@
 import React from 'react';
+import LoginScreen from './screens/LoginScreen';
 import HomeScreen from './screens/HomeScreen';
 import MenuScreen from './screens/MenuScreen';
 import DishDetailScreen from './screens/DishDetailScreen';
@@ -8,6 +9,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import Icon from './components/Icons';
 import { useNavigation } from '@react-navigation/native';
 import FavouritesScreen from './screens/FavouritesScreen';
+
 
 
 const Drawer = createDrawerNavigator();
@@ -135,14 +137,35 @@ const ContactStack = () => {
     )
 }
 
+const AuthStack = () => {
+    return (
+        <Stack.Navigator
+            screenOptions={{
+                headerStyle: {
+                    backgroundColor: "#F53B50",
+                },
+                headerTintColor: "#fff",
+                headerTitleStyle: {
+                    fontWeight: "bold",
+                }
+            }}>
+            <Stack.Screen name="Login" component={LoginScreen} />
+
+        </Stack.Navigator>
+    )
+}
+
 const AppNavigator = () => {
     return (
-        <Drawer.Navigator initialRouteName="Home">
+
+        <Drawer.Navigator initialRouteName="Logout" >
             <Drawer.Screen name="Home" component={HomeStack} />
             <Drawer.Screen name="Menu" component={MenuStack} />
             <Drawer.Screen name="Fovourites" component={FavStack} />
             <Drawer.Screen name="Contact" component={ContactStack} />
+            <Drawer.Screen name="Logout" component={AuthStack} />
         </Drawer.Navigator>
+
     )
 }
 

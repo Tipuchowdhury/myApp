@@ -3,6 +3,7 @@ import * as actionTypes from '../redux/actionTypes';
 const INITIAL_STATE = {
     dishes: [],
     favourites: [],
+    isAuth: false,
 }
 
 export const reducer = (state = INITIAL_STATE, action) => {
@@ -23,6 +24,11 @@ export const reducer = (state = INITIAL_STATE, action) => {
             return {
                 ...state,
                 favourites: state.favourites.filter(item => item.id !== action.payload.id)
+            }
+        case actionTypes.IS_AUTH:
+            return {
+                ...state,
+                isAuth: true
             }
         default:
             return state;
